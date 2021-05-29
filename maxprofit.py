@@ -1,7 +1,4 @@
-# CSE 101
-# Lab 11
-# Name: Seongbeen Na
-# Email address: seongbeen.na@stonybrook.edu
+#first upload
 
 def solution(A):
     result = []
