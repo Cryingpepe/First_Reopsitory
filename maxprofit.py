@@ -1,4 +1,4 @@
-#first upload
+#My answer to (https://app.codility.com/programmers/lessons/9-maximum_slice_problem/max_profit/)
 
 def solution(A):
     result = []
