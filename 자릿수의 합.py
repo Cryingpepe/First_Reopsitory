@@ -3,3 +3,18 @@
 #예) 1234567
 
 #1234567 → 1+2+3+4+5+6+7 = 28 → 2 + 8 = 10 → 1 + 0 = 1
+
+
+def SumofDigits(num):
+    result = 0
+    x = 0
+    if len(str(num)) > 1:
+        for i in str(num):
+            x += int(i)
+        SumofDigits(x)
+    else:
+        print(num)
+
+inputx = input()
+
+SumofDigits(inputx)
