@@ -32,5 +32,11 @@ def main():
       days = 28
     else:
       days = 30
-    listofdays = list(range(1,days)
-      for 
+    listofdays = list(range(1,days))
+      for i in listofdays:
+        Prime_Test(i)
+        if i == listofdays[-1]:
+          if current month == 12: #current month 랑 month를 통합가능? (month list가 불필요 할수도)
+            currentmonth -= 11
+          currentmonth +=1
+        
