@@ -9,10 +9,15 @@
 비버고등학교의 학생이 n명이라고 할 때, 모든 학생이 칭찬 스티커를 받기 위해서 최소 몇 일이 필요할까?
 칭찬 스티커 제도는 3월 1일에 처음 시작된다.
 
-def Prime_Test(): #월에 있는 날이 소수인지 테스트
+def Prime_Test(x): #월에 있는 날이 소수인지 테스트
     prime = []
     not_prime = []
-    days = list(range(2,32)) #1은 소수가 아님
-    for i in days:
-
+    if i == 1:
+      break
+    for i in range(2,x):
+      if x%i == 1:
+        not_prime.append(i)
+      else:
+        prime.append(i)
+        
     
