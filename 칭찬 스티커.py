@@ -19,5 +19,18 @@ def Prime_Test(x): #월에 있는 날이 소수인지 테스트
         not_prime.append(i)
       else:
         prime.append(i)
-        
+ 
+
+def Stickers(x):
     
+def main():
+    month = list(range(1,13))
+    currentmonth = 3
+    if month == (1 or 3 or 5 or 7 or 8 or 10 or 12):
+      days = 31
+    elif month == 2:
+      days = 28
+    else:
+      days = 30
+    listofdays = list(range(1,days)
+      for 
