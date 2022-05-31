@@ -10,33 +10,52 @@
 칭찬 스티커 제도는 3월 1일에 처음 시작된다.
 
 def Prime_Test(x): #월에 있는 날이 소수인지 테스트
-    prime = []
-    not_prime = []
     if i == 1:
-      break
+        return 2
     for i in range(2,x):
-      if x%i == 1:
-        not_prime.append(i)
+      if x%i == 0:
+        return 2
       else:
-        prime.append(i)
- 
-
-def Stickers(x):
+        return 3
     
 def main():
-    month = list(range(1,13))
-    currentmonth = 3
-    if month == (1 or 3 or 5 or 7 or 8 or 10 or 12):
-      days = 31
-    elif month == 2:
-      days = 28
-    else:
-      days = 30
-    listofdays = list(range(1,days))
-      for i in listofdays:
-        Prime_Test(i)
-        if i == listofdays[-1]:
-          if current month == 12: #current month 랑 month를 통합가능? (month list가 불필요 할수도)
-            currentmonth -= 11
-          currentmonth +=1
+    neededStickers = int(input())
+    days = [1]
+    currentmonth = [3]
+    currentstickers = 0
+
+
+    while currentstickers >= neededStickers:
+
+        if currentmonth[0] == (1 or 3 or 5 or 7 or 8 or 10 or 12):
+            if days[0] == 31:
+                if currentmonth[0] == 12:
+                    currentmonth[0] = 1
+                    days[0] = 1
+                else:
+                    currentmonth[0] = currentmonth[0]+1
+        elif currentmonth[0] == 2:
+            if days[0] == 28:
+                if currentmonth[0] == 12:
+                    currentmonth[0] = 1
+                    days[0] = 1
+                else:
+                    currentmonth[0] = currentmonth[0]+1
+        else:
+            if days[0] == 30:
+                if currentmonth[0] == 12:
+                    currentmonth[0] = 1
+                    days[0] = 1
+                else:
+                    currentmonth[0] = currentmonth[0]+1
         
+        currentstickers += Prime_Test(days[0])
+        days[0] = days[0]+1
+    
+    print (currentstickers)
+    print (days)
+
+main()
+        
+
+
