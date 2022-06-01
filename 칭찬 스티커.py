@@ -10,52 +10,59 @@
 칭찬 스티커 제도는 3월 1일에 처음 시작된다.
 
 def Prime_Test(x): #월에 있는 날이 소수인지 테스트
-    if i == 1:
-        return 2
-    for i in range(2,x):
-      if x%i == 0:
-        return 2
-      else:
-        return 3
+    if x == 1:
+        return int(2)
+    else:
+        for i in range(2,x):
+            if x%i == 0:
+                return int(2)
+            else:
+                return int(3)
     
-def main():
+def m():
     neededStickers = int(input())
-    days = [1]
+    days = 1
     currentmonth = [3]
     currentstickers = 0
+    daycount = 1
 
-
-    while currentstickers >= neededStickers:
-
+    while currentstickers <= neededStickers:
+        
         if currentmonth[0] == (1 or 3 or 5 or 7 or 8 or 10 or 12):
-            if days[0] == 31:
+            if days == 31:
                 if currentmonth[0] == 12:
                     currentmonth[0] = 1
-                    days[0] = 1
+                    days = 1
                 else:
                     currentmonth[0] = currentmonth[0]+1
+                    days = 1
         elif currentmonth[0] == 2:
-            if days[0] == 28:
+            if days == 28:
                 if currentmonth[0] == 12:
                     currentmonth[0] = 1
-                    days[0] = 1
+                    days = 1
                 else:
                     currentmonth[0] = currentmonth[0]+1
+                    days = 1
         else:
-            if days[0] == 30:
+            if days == 30:
                 if currentmonth[0] == 12:
                     currentmonth[0] = 1
-                    days[0] = 1
+                    days = 1
                 else:
                     currentmonth[0] = currentmonth[0]+1
+                    days = 1
+        result = Prime_Test(days)
+        print(type(result))
+        currentstickers += result
+        days += 1
+        daycount += 1
         
-        currentstickers += Prime_Test(days[0])
-        days[0] = days[0]+1
+        
     
-    print (currentstickers)
-    print (days)
 
-main()
-        
+    print (daycount)
 
+m()
 
+none type error 계속 
