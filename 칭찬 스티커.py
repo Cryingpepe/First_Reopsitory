@@ -66,3 +66,4 @@ def m():
 m()
 
 none type error 계속 
+https://codeup.kr/problem.php?id=2329
