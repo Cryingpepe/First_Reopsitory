@@ -9,24 +9,14 @@
 비버고등학교의 학생이 n명이라고 할 때, 모든 학생이 칭찬 스티커를 받기 위해서 최소 몇 일이 필요할까?
 칭찬 스티커 제도는 3월 1일에 처음 시작된다.
 
-def Prime_Test(x): #월에 있는 날이 소수인지 테스트
-    if x == 1:
-        return int(2)
-    else:
-        for i in range(2,x):
-            if x%i == 0:
-                return int(2)
-            else:
-                return int(3)
-    
 def m():
     neededStickers = int(input())
     days = 1
     currentmonth = [3]
-    currentstickers = 0
-    daycount = 1
+    currentstickers = 1
+    daycount = 0
 
-    while currentstickers <= neededStickers:
+    while currentstickers < neededStickers:
         
         if currentmonth[0] == (1 or 3 or 5 or 7 or 8 or 10 or 12):
             if days == 31:
@@ -52,18 +42,21 @@ def m():
                 else:
                     currentmonth[0] = currentmonth[0]+1
                     days = 1
-        result = Prime_Test(days)
-        print(type(result))
-        currentstickers += result
+        if days == 1:
+            currentstickers += 2
+        else:
+            for i in range(2,days):
+                if days%i == 0:
+                    currentstickers += 2
+                else:
+                    currentstickers += 3
         days += 1
         daycount += 1
-        
-        
-    
 
-    print (daycount)
+    print(daycount)
 
 m()
 
-none type error 계속 
+값은 제대로 나오나 time out
+
 https://codeup.kr/problem.php?id=2329
