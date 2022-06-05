@@ -14,49 +14,41 @@ def m():
     days = 1
     currentmonth = [3]
     currentstickers = 1
-    daycount = 0
+    daycount = 1
 
     while currentstickers < neededStickers:
         
-        if currentmonth[0] == (1 or 3 or 5 or 7 or 8 or 10 or 12):
-            if days == 31:
-                if currentmonth[0] == 12:
-                    currentmonth[0] = 1
-                    days = 1
-                else:
-                    currentmonth[0] = currentmonth[0]+1
-                    days = 1
+        if currentmonth[0] == (1 or 3 or 5 or 7 or 8 or 10 or 12) and days == 31:
+            if currentmonth[0] == 12:
+                currentmonth[0] = 1
+                days = 1
+            else:
+                currentmonth[0] = currentmonth[0]+1
+                days = 1
         elif currentmonth[0] == 2:
             if days == 28:
-                if currentmonth[0] == 12:
-                    currentmonth[0] = 1
-                    days = 1
-                else:
-                    currentmonth[0] = currentmonth[0]+1
-                    days = 1
+                currentmonth[0] = currentmonth[0]+1
+                days = 1
         else:
             if days == 30:
-                if currentmonth[0] == 12:
-                    currentmonth[0] = 1
-                    days = 1
-                else:
-                    currentmonth[0] = currentmonth[0]+1
-                    days = 1
-        if days == 1:
-            currentstickers += 2
+                currentmonth[0] = currentmonth[0]+1
+                days = 1
+        prime = [2,3,5,7,11,13,17,19,23,29,31]
+        if days != (x for x in prime)  :
+            currentstickers = currentstickers + (currentstickers*2)
+            print('a')
         else:
-            for i in range(2,days):
-                if days%i == 0:
-                    currentstickers += 2
-                else:
-                    currentstickers += 3
+            currentstickers = currentstickers + (currentstickers*3)
+            print('b')
         days += 1
         daycount += 1
-
+        print('stc:',currentstickers)
+        print('day:',daycount)
+        print('days:',days)
     print(daycount)
 
 m()
 
-값은 제대로 나오나 time out
+아직 소수 부분 처리가 부족
 
 https://codeup.kr/problem.php?id=2329
