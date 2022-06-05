@@ -34,11 +34,11 @@ def m():
                 currentmonth[0] = currentmonth[0]+1
                 days = 1
         prime = [2,3,5,7,11,13,17,19,23,29,31]
-        if days != (x for x in prime)  :
-            currentstickers = currentstickers + (currentstickers*2)
+        if days in prime:
+            currentstickers = currentstickers + (currentstickers*3)
             print('a')
         else:
-            currentstickers = currentstickers + (currentstickers*3)
+            currentstickers = currentstickers + (currentstickers*2)
             print('b')
         days += 1
         daycount += 1
@@ -49,6 +49,6 @@ def m():
 
 m()
 
-아직 소수 부분 처리가 부족
+결과가 이상해서 나중에 확인
 
 https://codeup.kr/problem.php?id=2329
