@@ -18,28 +18,33 @@ def m():
 
     while currentstickers < neededStickers:
         
-        if currentmonth[0] == (1 or 3 or 5 or 7 or 8 or 10 or 12) and days == 31:
-            if currentmonth[0] == 12:
-                currentmonth[0] = 1
-                days = 1
-            else:
-                currentmonth[0] = currentmonth[0]+1
-                days = 1
-        elif currentmonth[0] == 2:
-            if days == 28:
-                currentmonth[0] = currentmonth[0]+1
-                days = 1
-        else:
-            if days == 30:
-                currentmonth[0] = currentmonth[0]+1
-                days = 1
-        prime = [2,3,5,7,11,13,17,19,23,29,31]
+        months = [1, 3, 5, 7, 8, 10, 12]
+
+        prime = [ 2,3,5,7,11,13,17,19,23,31,29]
+
         if days in prime:
             currentstickers = currentstickers + (currentstickers*3)
             print('a')
         else:
             currentstickers = currentstickers + (currentstickers*2)
             print('b')
+
+        if currentmonth[0] not in months:
+            if days == 30:
+                currentmonth[0] = currentmonth[0]+1
+                days = 0
+        elif currentmonth[0] == 2:
+            if days == 28:
+                currentmonth[0] = currentmonth[0]+1
+                days = 0
+        else:
+            if currentmonth[0] == 12 and days == 31:
+                currentmonth[0] = 1
+                days = 0
+            elif days == 31:
+                currentmonth[0] = currentmonth[0]+1
+                days = 0
+
         days += 1
         daycount += 1
         print('stc:',currentstickers)
@@ -49,6 +54,5 @@ def m():
 
 m()
 
-결과가 이상해서 나중에 확인
-
-https://codeup.kr/problem.php?id=2329
+#이제는 스티커 갯수 계산만 수정하면 됨!
+#https://codeup.kr/problem.php?id=2329
