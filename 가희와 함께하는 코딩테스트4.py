@@ -11,7 +11,7 @@
 #출력
 #몬스터에게 대미지를 줄 수 있으면 1, 그렇지 않으면 0을 출력해 주세요.
 
-#aswer
+#answer
 
 a, b = input().split()
 if int(a) - int(a)*(int(b)/100) >= 100:
@@ -19,3 +19,19 @@ if int(a) - int(a)*(int(b)/100) >= 100:
 else:
     print('1')
     
+#second problem (https://www.acmicpc.net/problem/25239)
+
+# answer
+
+a = []
+a.append(input().split('\n'))
+
+Clock = a[0]
+HealingP = list(a[1].split('')
+NumofEvent = list[2]
+Evt = []
+for i in a[3:]:
+      
+
+def Clock():
+    if tim
