@@ -23,15 +23,67 @@ else:
 
 # answer
 
-a = []
-a.append(input().split('\n'))
-
-Clock = a[0]
-HealingP = list(a[1].split('')
-NumofEvent = list[2]
+ClockH, ClockM = input().split(':')
+ClockH = int(ClockH)
+ClockM = int(ClockM)
+HealingP = list(input().split())
+NumofEvent = int(input())
 Evt = []
-for i in a[3:]:
-      
+while NumofEvent > 0:
+    a = input()
+    Evt.append(a)
+    NumofEvent -= 1
 
-def Clock():
-    if tim
+Clocksection = 0 
+
+if 0 <= ClockH < 2:
+    Clocksection = 0
+elif 2 <= ClockH < 4:
+    Clocksection = 1
+elif 4 <= ClockH < 6:
+    Clocksection = 2
+elif 6 <= ClockH < 8:
+    Clocksection = 3
+elif 8 <= ClockH < 10:
+    Clocksection = 4
+else:
+    Clocksection = 5
+
+for i in Evt:
+    
+    if '^' in i:
+        HealingP[Clocksection] = 0
+    else:
+        a, b = i.split()
+        if 'MIN' in b:
+            ClockM += int(b[0:2])
+        if 'HOUR' in b:
+            ClockH += int(b[0])
+            
+        if ClockM >= 60:
+            ClockH += 1
+            ClockM -= 60
+        if ClockH >= 12:
+            ClockH -= 11
+
+        if 0 <= ClockH < 2:
+            Clocksection = 0
+        elif 2 <= ClockH < 4:
+            Clocksection = 1
+        elif 4 <= ClockH < 6:
+            Clocksection = 2
+        elif 6 <= ClockH < 8:
+            Clocksection = 3
+        elif 8 <= ClockH < 10:
+            Clocksection = 4
+        else:
+            Clocksection = 5
+        
+result = 0
+
+for i in HealingP:
+    result += int(i)
+if result > 100:
+    result = 100
+print(result)
+아직 모든 시계 구역이 닫힐경우를 구하지 못함
