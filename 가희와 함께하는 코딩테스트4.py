@@ -98,3 +98,31 @@ else:
 
 #answer
 
+NofUser, NofFile = input().split()
+NofUser = int(NofUser)
+NofFile = int(NofFile)
+dictofinfo = {}
+dictofbook = {}
+Task = []
+
+while NofUser > 0:
+    a = input().split()
+    if len(a) > 1:
+        dictofinfo[a[0]] = a[1].split(',')
+    else:
+        dictofinfo[a[0]] = ''
+    NofUser -= 1
+
+while NofFile > 0:
+    a = input().split()
+    dictofbook[a[0]] = a[1:]
+    NofFile -= 1
+
+NofTask = int(input())
+
+while NofTask > 0 :
+    a = input().split()
+    Task.append(a)
+    NofTask -= 1
+
+
