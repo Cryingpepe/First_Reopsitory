@@ -21,12 +21,14 @@ else:
     
 #second problem (https://www.acmicpc.net/problem/25239)
 
-# answer
+#answer
 
 ClockH, ClockM = input().split(':')
 ClockH = int(ClockH)
 ClockM = int(ClockM)
 HealingP = list(input().split())
+for i in HealingP:
+    HealingP[HealingP.index(i)] = int(i)
 NumofEvent = int(input())
 Evt = []
 while NumofEvent > 0:
@@ -50,11 +52,15 @@ else:
     Clocksection = 5
 
 for i in Evt:
-    
+    a, b = i.split()
+
+    if float(a) > 60:
+        break
+
     if '^' in i:
         HealingP[Clocksection] = 0
+
     else:
-        a, b = i.split()
         if 'MIN' in b:
             ClockM += int(b[0:2])
         if 'HOUR' in b:
@@ -64,7 +70,7 @@ for i in Evt:
             ClockH += 1
             ClockM -= 60
         if ClockH >= 12:
-            ClockH -= 11
+            ClockH -= 12
 
         if 0 <= ClockH < 2:
             Clocksection = 0
@@ -76,14 +82,19 @@ for i in Evt:
             Clocksection = 3
         elif 8 <= ClockH < 10:
             Clocksection = 4
-        else:
+        elif 10 <= ClockH < 12:
             Clocksection = 5
-        
-result = 0
 
-for i in HealingP:
-    result += int(i)
-if result > 100:
-    result = 100
-print(result)
-아직 모든 시계 구역이 닫힐경우를 구하지 못함
+    if sum(HealingP) == 0:
+        break
+
+        
+if sum(HealingP) > 100:
+    print('100')
+else:
+    print(sum(HealingP))
+    
+#third problem (https://www.acmicpc.net/problem/25240)
+
+#answer
+
