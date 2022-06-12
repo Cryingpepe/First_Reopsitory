@@ -15,19 +15,21 @@ def m():
     currentmonth = [3]
     currentstickers = 1
     daycount = 1
+    previous = 1
 
     while currentstickers < neededStickers:
-        
+        days += 1
         months = [1, 3, 5, 7, 8, 10, 12]
 
-        prime = [ 2,3,5,7,11,13,17,19,23,31,29]
+        prime = [2,3,5,7,11,13,17,19,23,31,29]
 
         if days in prime:
-            currentstickers = currentstickers + (currentstickers*3)
-            print('a')
+            currentstickers = currentstickers + (previous*3)
+            previous *= 3
+
         else:
-            currentstickers = currentstickers + (currentstickers*2)
-            print('b')
+            currentstickers = currentstickers + (previous*2)
+            previous *= 2
 
         if currentmonth[0] not in months:
             if days == 30:
@@ -45,14 +47,10 @@ def m():
                 currentmonth[0] = currentmonth[0]+1
                 days = 0
 
-        days += 1
         daycount += 1
-        print('stc:',currentstickers)
-        print('day:',daycount)
-        print('days:',days)
+        
     print(daycount)
 
 m()
 
-#이제는 스티커 갯수 계산만 수정하면 됨!
 #https://codeup.kr/problem.php?id=2329
