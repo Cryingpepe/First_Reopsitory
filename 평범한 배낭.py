@@ -1,4 +1,4 @@
-#https://www.acmicpc.net/problem/12865
+#https://www.acmicpc.net/problem/12865          (https://www.acmicpc.net/workbook/view/4349)
 
 Numofstf, maxweight = map(int,input().split())
 listofstf =[]
