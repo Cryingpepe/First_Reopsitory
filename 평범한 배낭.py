@@ -2,6 +2,9 @@
 
 Numofstf, maxweight = map(int,input().split())
 listofstf =[]
+currentstf = []
+
+currentw, currentv = 0, 0
 
 while Numofstf > 0:
     a, b = map(int,input().split())
@@ -9,5 +12,15 @@ while Numofstf > 0:
     Numofstf -= 1
 
 for i in listofstf:
-    totalw, totalv = 0, 0
-    while maxweight =< totalw:
+    if (maxweight - currentw) - i[0] <= maxweight:
+        currentw += i[0]
+        currentv += i[1]
+        currentstf.append(i)
+    else:
+        for x in currentstf:
+            if (i[0] <= x[0] and i[1] > x[1]) or (i[1] == x[1] and i[0] < x[0]):
+                x[0], x[1] = i[0], i[1]
+            else:
+                break
+
+print(currentv)
