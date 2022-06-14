@@ -12,7 +12,7 @@ while Numofstf > 0:
     Numofstf -= 1
 
 for i in listofstf:
-    if (maxweight - currentw) - i[0] <= maxweight:
+    if currentw + i[0] <= maxweight:
         currentw += i[0]
         currentv += i[1]
         currentstf.append(i)
@@ -24,3 +24,5 @@ for i in listofstf:
                 break
 
 print(currentv)
+#본질적으로 잘못되어서 처음부터 바꿔야 할것 
+#찾아보니 냅색 알고리즘 이라고 한다
