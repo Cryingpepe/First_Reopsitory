@@ -98,9 +98,7 @@ else:
 
 #answer
 
-NofUser, NofFile = input().split()
-NofUser = int(NofUser)
-NofFile = int(NofFile)
+NofUser, NofFile = map(int,input().split())
 dictofinfo = {}
 dictofbook = {}
 Task = []
@@ -125,4 +123,16 @@ while NofTask > 0 :
     Task.append(a)
     NofTask -= 1
 
+def bookreader(bookinfo):
+    Bookname = list(bookinfo.keys())
+    for i in Bookname:
 
+Owner = 
+Group = 
+Other = 
+
+print (dictofbook)
+print (dictofinfo)
+print (Task)
+
+# 아직 많이 남았다..
