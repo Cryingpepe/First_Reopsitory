@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/2580
 sudokuW = []
 sudokuH = [[],[],[],[],[],[],[],[],[]]
 for i in range(9):
