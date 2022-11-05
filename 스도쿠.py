@@ -16,10 +16,10 @@ while end == 0:
     if 0 not in [i for i in sudokuW]:
         end += 1
 
-    sudokuH = [[],[],[],[],[],[],[],[],[]] # 리스트 초기화
+    sudokuS = [[],[],[],[],[],[],[],[],[]] # S리스트 초기화
 
-    for j in range(9):                     # H만들기
-        for i in range(9):
+    for j in range(0,8):                     # H만들기
+        for i in range(0,8):
             sudokuH[i].append(sudokuW[j][i])
 
     for i in sudokuH:                     # H뺴기
@@ -29,13 +29,13 @@ while end == 0:
     if 0 not in [i for i in sudokuH]:
         end += 1
 
-    sudokuW = [[],[],[],[],[],[],[],[],[]] # 리스트 초기화
+    sudokuW = [[],[],[],[],[],[],[],[],[]] # W리스트 초기화
 
-    for i in range(3):                     # S만들기 
-        for j in range(3):
-            sudokuS[i].append(sudokuH[j][0:2])
-            sudokuS[i+3].append(sudokuH[j+3][3:5])
-            sudokuS[i+6].append(sudokuH[j+6][6:8])
+    for i in range(0,2):                     # S만들기 
+        for j in range(0,2):
+            sudokuS[i].append(sudokuH[j][1:3])
+            sudokuS[i+3].append(sudokuH[j+3][4:6])
+            sudokuS[i+6].append(sudokuH[j+6][7:9])
     
     for i in sudokuH:                     # S뺴기
         if i.count(0) == 1:
@@ -44,11 +44,15 @@ while end == 0:
     if 0 not in [i for i in sudokuS]:
         end += 1
 
-    sudokuS = [[],[],[],[],[],[],[],[],[]] # 리스트 초기화
+    sudokuH = [[],[],[],[],[],[],[],[],[]] # H리스트 초기화
 
-    for j in range(9):                     # W만들기 - 미완
-        for i in range(9):
-            sudokuW[i].append(sudokuH[j][i])
+    for i in range(9):                     # W만들기 - 미완
+        for j in range(9):
+            sudokuW[i].append(sudokuS[::3][i::3])
+            sudokuW[i+3].append(sudokuS[1::3][i::3])
+            sudokuW[i+6].append(sudokuS[2::3][i::3])
+
+
 
 
 result = ""
