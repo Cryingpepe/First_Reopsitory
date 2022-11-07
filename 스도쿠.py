@@ -18,8 +18,8 @@ while end == 0:
 
     sudokuS = [[],[],[],[],[],[],[],[],[]] # S리스트 초기화
 
-    for j in range(0,8):                     # H만들기
-        for i in range(0,8):
+    for j in range(0,9):                     # H만들기
+        for i in range(0,9):
             sudokuH[i].append(sudokuW[j][i])
 
     for i in sudokuH:                     # H뺴기
@@ -31,11 +31,16 @@ while end == 0:
 
     sudokuW = [[],[],[],[],[],[],[],[],[]] # W리스트 초기화
 
-    for i in range(0,2):                     # S만들기 
-        for j in range(0,2):
-            sudokuS[i].append(sudokuH[j][1:3])
-            sudokuS[i+3].append(sudokuH[j+3][4:6])
-            sudokuS[i+6].append(sudokuH[j+6][7:9])
+    for j in range(0,3):
+        sudokuS[0]+=sudokuH[j][0:3]
+        sudokuS[3]+=sudokuH[j][3:6]
+        sudokuS[6]+=sudokuH[j][6:9]
+        sudokuS[1]+=sudokuH[j+3][0:3]
+        sudokuS[4]+=sudokuH[j+3][3:6]
+        sudokuS[7]+=sudokuH[j+3][6:9]
+        sudokuS[2]+=sudokuH[j+6][0:3]
+        sudokuS[5]+=sudokuH[j+6][3:6]
+        sudokuS[8]+=sudokuH[j+6][6:9]
     
     for i in sudokuH:                     # S뺴기
         if i.count(0) == 1:
@@ -48,12 +53,9 @@ while end == 0:
 
     for i in range(9):                     # W만들기 - 미완
         for j in range(9):
-            sudokuW[i].append(sudokuS[::3][i::3])
-            sudokuW[i+3].append(sudokuS[1::3][i::3])
-            sudokuW[i+6].append(sudokuS[2::3][i::3])
-
-
-
+            sudokuW[i]+=sudokuS[::3][i::3]
+            sudokuW[i+3]+=sudokuS[1::3][i::3]
+            sudokuW[i+6]+=sudokuS[2::3][i::3]
 
 result = ""
 
