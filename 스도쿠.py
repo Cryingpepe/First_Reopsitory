@@ -7,7 +7,7 @@ end = 0
 for i in range(9):
     sudokuW.append(list(map(int, input().split())))
 
-while end == 0:
+for w in range(5):
 
     for i in sudokuW:                     # W뺴기
         if i.count(0) == 1:
@@ -53,7 +53,7 @@ while end == 0:
 
     sudokuH = [[],[],[],[],[],[],[],[],[]] # H리스트 초기화
 
-    for i in range(0,3):                     # W만들기 
+    for i in range(0,3):                     # W만들기 - 미완
         sudokuW[i]+=sudokuS[0][i::3]
         sudokuW[i]+=sudokuS[1][i::3]
         sudokuW[i]+=sudokuS[2][i::3]
@@ -71,4 +71,6 @@ while end == 0:
 for i in range(9):
     for j in range(9):
         print (sudokuW[i][j], end=" ")
-    print ("\n")
+    print("")
+
+# 심각한 오류가 있었다.. dfs를 사용해야 한다는 조언을 
