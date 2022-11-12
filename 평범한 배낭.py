@@ -13,13 +13,11 @@ for i in range(Numofstf):
 
 for i in range(1,Numofstf+1):
     for j in range(1,maxweight+1):
-        if j < listofstf[i][0]:
-            result[i][j] = listofstf[i-1][1]
-        
+        if j < listofstf[i-1][0]:
+            result[i][j] = result[i-1][j]
+        else:
+            result[i][j] = max(result[i-1][j-listofstf[i-1][0]] + listofstf[i-1][1], result[i-1][j])
 
-
-
-
-print (valueofstf)
+print(max(map(max, result)))
 
 #찾아보니 냅색 알고리즘 이라고 한다
