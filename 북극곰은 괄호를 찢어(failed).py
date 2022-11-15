@@ -36,3 +36,6 @@ elif x.count('(') != x.count(')'):
     print(-1)      
 else:
     solver (x)
+
+    
+    #시간초과.. 어떻게 최적화 시킬수 
