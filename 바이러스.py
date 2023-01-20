@@ -11,12 +11,12 @@ for i in range(NumofCon):
     if a in [x for x in ListofVic]:
         if b in ListofVic:
             continue
-        ListofVic += b
+        ListofVic.append(str(b))
 
     elif b in [x for x in ListofVic]:
         if a in ListofVic:
             continue
-        ListofVic += a
+        ListofVic.append(str(a))
 
     else:
         ListofUninf.append([str(a),str(b)])
@@ -25,10 +25,10 @@ for x in ListofUninf:
     if x[0] in ListofVic:
         if x[1] in ListofVic:
             continue
-        ListofVic += x[1]
+        ListofVic.append(str(x[1]))
     elif x[1] in ListofVic:
         if x[0] in ListofVic:
             continue
-        ListofVic += x[0]
+        ListofVic.append(str(x[0]))
 
 print(len(ListofVic)-1)
