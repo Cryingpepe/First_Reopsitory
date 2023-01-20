@@ -2,11 +2,10 @@ N = int(input()) # Number of computer
 NumofCon = int(input()) # Number of connections
 
 ListofCon = [] # List of connections
-ListofVic = [] # List of Victim
+ListofVic = [1] # List of Victim
 
 for i in range(NumofCon):
-    ListofCon += input().split()
+    if input().split() in [a for a in ListofVic] :
+        ListofVic += input().split()
 
-print (.index('1'))
-
-print (ListofCon)
+print (ListofVic)
