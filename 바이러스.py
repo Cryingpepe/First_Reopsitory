@@ -1,37 +1,47 @@
 N = int(input()) # Number of computer
 NumofCon = int(input()) # Number of connections
 
-ListofVic = ['1'] # List of Victim
+ListofVic = [1] # List of Victim
 ListofUninf = [] # List of Uninfected
 
 for i in range(NumofCon):
 
-    a,b = input().split()
+    a,b = map(int, input().split())
 
-    if a in [x for x in ListofVic]:
+    if a in ListofVic:
         if b in ListofVic:
             continue
-        ListofVic.append(str(b))
+        ListofVic.append(b)
 
-    elif b in [x for x in ListofVic]:
+    elif b in ListofVic:
         if a in ListofVic:
             continue
-        ListofVic.append(str(a))
+        ListofVic.append(a)
 
     else:
-        ListofUninf.append([str(a),str(b)])
+        ListofUninf.append([a,b])
+
+
 
 for x in ListofUninf and ListofUninf[::-1]:
-    if x[0] in ListofVic:
-        if x[1] in ListofVic:
-            continue
-        else:
-           ListofVic.append(str(x[1]))
-    elif x[1] in ListofVic:
+
+    while x[:] in ListofVic:
+
         if x[0] in ListofVic:
-            continue
+            if x[1] in ListofVic:
+                continue
+            else:
+             ListofVic.append(x[1])
+
+
+        elif x[1] in ListofVic:
+            if x[0] in ListofVic:
+                continue
+            else:
+                ListofVic.append(x[0])
+
         else:
-           ListofVic.append(str(x[0]))
+            continue
     
 
 print(len(ListofVic)-1)
