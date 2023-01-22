@@ -21,14 +21,17 @@ for i in range(NumofCon):
     else:
         ListofUninf.append([str(a),str(b)])
 
-for x in ListofUninf:
+for x in ListofUninf and ListofUninf[::-1]:
     if x[0] in ListofVic:
         if x[1] in ListofVic:
             continue
-        ListofVic.append(str(x[1]))
+        else:
+           ListofVic.append(str(x[1]))
     elif x[1] in ListofVic:
         if x[0] in ListofVic:
             continue
-        ListofVic.append(str(x[0]))
+        else:
+           ListofVic.append(str(x[0]))
+    
 
 print(len(ListofVic)-1)
