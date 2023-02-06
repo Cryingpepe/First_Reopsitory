@@ -22,36 +22,23 @@ for i in range(NumofCon):
         ListofUninf.append([a,b])
 
 
+for i in range(NumofCon):
+    for x in ListofUninf[::-1] and ListofUninf:
 
-for x in ListofUninf[::-1] and ListofUninf:
-
-    if x[0] in ListofVic:
-        if x[1] in ListofVic:
-            continue
-        else:
-            ListofVic.append(x[1])
-
-
-    elif x[1] in ListofVic:
         if x[0] in ListofVic:
-            continue
-        else:
-            ListofVic.append(x[0])
+            if x[1] in ListofVic:
+                continue
+            else:
+                ListofVic.append(x[1])
 
-    else:
-        continue
-    
+
+        elif x[1] in ListofVic:
+            if x[0] in ListofVic:
+                continue
+            else:
+                ListofVic.append(x[0])
+
+        else:
+            continue
 
 print(len(ListofVic)-1)
-
-# 10
-# 9
-# 1 10
-# 10 20
-# 20 30
-# 40 50
-# 50 60
-# 70 80
-# 90 
-# 60 
-# 80 60
