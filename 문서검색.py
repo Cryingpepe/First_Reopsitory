@@ -6,23 +6,25 @@ while True():
     try:
         hole = int(input())
         legos = []
+        result = []
 
         for i in range(int(input())):
             legos.append(int(input()))
         
         legos.sort()
         
-        while (True):
-            if(li[start] + li[end] == x):
-                print('yes',li[start] , li[end])
-                break
-            elif(li[start] + li[end] > x):
-                end-=1
-            elif (li[start] + li[end] < x):
-                start+=1
-            if(start >= end):
-                print('danger')
-                break
+        for i in legos:
+            legos.remove(i)
+            if (hole*10000000 - i) in legos:
+                if i > hole - i:
+                    result.append("yes " + str(hole*10000000 - i) + " " + str(i))
+                    legos.remove(hole*10000000 - i)
+                else:
+                    result.append("yes " + str(i) + " " + str(hole*10000000 - i))
+                    legos.remove(hole*10000000 - i)
+
+        if len(result) == 0:
+            print('danger')
         else:
             print(sorted(result)[0])
     except:
