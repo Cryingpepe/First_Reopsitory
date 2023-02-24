@@ -1,15 +1,29 @@
-string = input()
-finding = input()
+import sys
+input = sys.stdin.readline
 
-count = 0
-ls = 0
+while True():
+    
+    try:
+        hole = int(input())
+        legos = []
 
-while len(string) - len(finding) >= ls:
-    if string[ls:ls + len(finding)] == finding:
-        count += 1
-        ls += len(finding)
+        for i in range(int(input())):
+            legos.append(int(input()))
         
-    else:
-        ls += 1
-
-print (count)
+        legos.sort()
+        
+        while (True):
+            if(li[start] + li[end] == x):
+                print('yes',li[start] , li[end])
+                break
+            elif(li[start] + li[end] > x):
+                end-=1
+            elif (li[start] + li[end] < x):
+                start+=1
+            if(start >= end):
+                print('danger')
+                break
+        else:
+            print(sorted(result)[0])
+    except:
+        None
