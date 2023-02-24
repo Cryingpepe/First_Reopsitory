@@ -1,7 +1,15 @@
-import sys
-input = sys.stdin.getline
-string = ''
+string = input()
+finding = input()
 
-string += input()
+count = 0
+ls = 0
 
-print(string)
+while len(string) - len(finding) >= ls:
+    if string[ls:ls + len(finding)] == finding:
+        count += 1
+        ls += len(finding)
+        
+    else:
+        ls += 1
+
+print (count)
